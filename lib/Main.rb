@@ -21,8 +21,13 @@ class Main
       url = event.message.content.gsub(prefix+"music", '')
       event.respond("Ok, I'll play the song in this url #{url}")
 
-      # Do something with the URL, such as printing it to the console
-      puts "The URL is #{url}"
+
+      song=Song.new(url)
+
+      #download the sound
+      song.download_song
+
+
     end
     bot.run(false) #run the bot in-definitionally
 

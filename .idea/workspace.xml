@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fae9057-6d0d-443c-8810-6ab84ee18f28" name="Changes" comment="add gitignore file">
-      <change afterPath="$PROJECT_DIR$/lib/bot_credentials.rb" afterDir="false" />
+    <list default="true" id="7fae9057-6d0d-443c-8810-6ab84ee18f28" name="Changes" comment="move bots credentials in another file to protect identification datas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Main.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Main.rb" afterDir="false" />
     </list>
@@ -31,17 +30,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/quent/Documents/Jouer_info/Discord_Bot_Play_Music",
-    "nodejs_package_manager_path": "npm",
-    "ruby.rails.projectView.checked": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/quent/Documents/Jouer_info/Discord_Bot_Play_Music&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="TaskManager">
@@ -57,6 +56,8 @@
       <workItem from="1677321512598" duration="1228000" />
       <workItem from="1677327082268" duration="11616000" />
       <workItem from="1677345241424" duration="5309000" />
+      <workItem from="1677350790676" duration="666000" />
+      <workItem from="1677356778034" duration="346000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1677251784792</created>
@@ -114,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677350760738</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="move bots credentials in another file to protect identification datas">
+      <created>1677351019672</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677351019672</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +147,7 @@
     <MESSAGE value="add response to the bot" />
     <MESSAGE value="add response to requests" />
     <MESSAGE value="add gitignore file" />
-    <option name="LAST_COMMIT_MESSAGE" value="add gitignore file" />
+    <MESSAGE value="move bots credentials in another file to protect identification datas" />
+    <option name="LAST_COMMIT_MESSAGE" value="move bots credentials in another file to protect identification datas" />
   </component>
 </project>
