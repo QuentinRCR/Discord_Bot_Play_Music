@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fae9057-6d0d-443c-8810-6ab84ee18f28" name="Changes" comment="move the download function to the song class" />
+    <list default="true" id="7fae9057-6d0d-443c-8810-6ab84ee18f28" name="Changes" comment="move the download function to the song class">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Discord_Bot_Play_Music.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Discord_Bot_Play_Music.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Main.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Main.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/song.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/song.rb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +57,7 @@
       <workItem from="1677270346569" duration="4705000" />
       <workItem from="1677321512598" duration="1228000" />
       <workItem from="1677327082268" duration="11616000" />
-      <workItem from="1677345241424" duration="1873000" />
+      <workItem from="1677345241424" duration="4023000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1677251784792</created>
@@ -89,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677347019957</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="move the download function to the song class">
+      <created>1677347364487</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677347364487</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

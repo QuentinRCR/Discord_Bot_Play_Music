@@ -1,7 +1,7 @@
 class Song
 
   attr_accessor :url
-
+  attr_accessor :absolut_path
 
   def initialize(url)
     @url=url
