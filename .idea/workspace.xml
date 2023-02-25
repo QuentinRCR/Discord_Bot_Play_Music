@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fae9057-6d0d-443c-8810-6ab84ee18f28" name="Changes" comment="get the url back when someone use the /music url command">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Discord_Bot_Play_ Music.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Discord_Bot_Play_ Music.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Main.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Main.rb" afterDir="false" />
-    </list>
+    <list default="true" id="7fae9057-6d0d-443c-8810-6ab84ee18f28" name="Changes" comment="move the download function to the song class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +11,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Ruby File" />
+        <option value="Ruby Class" />
       </list>
     </option>
   </component>
@@ -30,16 +27,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/quent/Documents/Jouer_info/Discord_Bot_Play_Music",
+    "nodejs_package_manager_path": "npm",
+    "ruby.rails.projectView.checked": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="TaskManager">
@@ -53,7 +51,8 @@
       <workItem from="1677261542006" duration="1912000" />
       <workItem from="1677270346569" duration="4705000" />
       <workItem from="1677321512598" duration="1228000" />
-      <workItem from="1677327082268" duration="7438000" />
+      <workItem from="1677327082268" duration="11616000" />
+      <workItem from="1677345241424" duration="1873000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1677251784792</created>
@@ -69,7 +68,28 @@
       <option name="project" value="LOCAL" />
       <updated>1677273839933</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add fonction that allows to download the audio of a YouTube video with its URL">
+      <created>1677335429592</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677335429592</updated>
+    </task>
+    <task id="LOCAL-00004" summary="move the download function to the song class">
+      <created>1677346367563</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677346367563</updated>
+    </task>
+    <task id="LOCAL-00005" summary="move the download function to the song class">
+      <created>1677347019957</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677347019957</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,6 +109,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="get the url back when someone use the /music url command" />
-    <option name="LAST_COMMIT_MESSAGE" value="get the url back when someone use the /music url command" />
+    <MESSAGE value="add fonction that allows to download the audio of a YouTube video with its URL" />
+    <MESSAGE value="move the download function to the song class" />
+    <option name="LAST_COMMIT_MESSAGE" value="move the download function to the song class" />
   </component>
 </project>
