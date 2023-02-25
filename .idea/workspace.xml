@@ -4,7 +4,7 @@
     <list default="true" id="7fae9057-6d0d-443c-8810-6ab84ee18f28" name="Changes" comment="get the url back when someone use the /music url command">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Discord_Bot_Play_ Music.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Discord_Bot_Play_ Music.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/hello.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Main.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Main.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Main.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +51,9 @@
       <updated>1677250067122</updated>
       <workItem from="1677250070063" duration="2995000" />
       <workItem from="1677261542006" duration="1912000" />
-      <workItem from="1677270346569" duration="3294000" />
+      <workItem from="1677270346569" duration="4705000" />
+      <workItem from="1677321512598" duration="1228000" />
+      <workItem from="1677327082268" duration="7438000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1677251784792</created>
@@ -60,7 +62,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677251784792</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="get the url back when someone use the /music url command">
+      <created>1677273839933</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1677273839933</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
