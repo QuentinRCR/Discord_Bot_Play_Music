@@ -2,6 +2,7 @@ require 'discordrb'
 require 'selenium-webdriver'
 require "cgi"
 require_relative 'song'
+require_relative 'bot_credentials'
 
 
 
@@ -9,8 +10,8 @@ class Main
 
 
   def self.run
-    bot_token="MTA3ODcwMzE1MDM3MTk3MTA4Mg.GzD8Wj.MQIdvJjY-WPxznk66l3ByRtuEQ1damI3L4RaKg"
-    client_id=1078703150371971082
+    bot_token= BOT_CREDENTIALS::INFO['token']
+    client_id= BOT_CREDENTIALS::INFO['id']
     prefix="/"
 
     #create the discord bot
