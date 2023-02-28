@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7fae9057-6d0d-443c-8810-6ab84ee18f28" name="Changes" comment="move bots credentials in another file to protect identification datas">
+    <list default="true" id="7fae9057-6d0d-443c-8810-6ab84ee18f28" name="Changes" comment="add song auto download to discord request">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Main.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Main.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/song.rb" beforeDir="false" afterPath="$PROJECT_DIR$/lib/song.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,17 +31,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/quent/Documents/Jouer_info/Discord_Bot_Play_Music&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/quent/Documents/Jouer_info/Discord_Bot_Play_Music",
+    "nodejs_package_manager_path": "npm",
+    "ruby.rails.projectView.checked": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" RAKE_SPRING_PRE_LOADER_OPTION="true" RAILS_SPRING_PRE_LOADER_OPTION="true" />
   <component name="TaskManager">
@@ -57,7 +58,15 @@
       <workItem from="1677327082268" duration="11616000" />
       <workItem from="1677345241424" duration="5309000" />
       <workItem from="1677350790676" duration="666000" />
-      <workItem from="1677356778034" duration="346000" />
+      <workItem from="1677356778034" duration="2971000" />
+      <workItem from="1677359887875" duration="1160000" />
+      <workItem from="1677404657376" duration="4028000" />
+      <workItem from="1677510714988" duration="128000" />
+      <workItem from="1677530195410" duration="5382000" />
+      <workItem from="1677572456908" duration="2309000" />
+      <workItem from="1677578041883" duration="38000" />
+      <workItem from="1677587188534" duration="186000" />
+      <workItem from="1677617833874" duration="3319000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1677251784792</created>
@@ -122,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677351019672</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add song auto download to discord request">
+      <created>1677357406060</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677357406060</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +164,24 @@
     <MESSAGE value="add response to requests" />
     <MESSAGE value="add gitignore file" />
     <MESSAGE value="move bots credentials in another file to protect identification datas" />
-    <option name="LAST_COMMIT_MESSAGE" value="move bots credentials in another file to protect identification datas" />
+    <MESSAGE value="add song auto download to discord request" />
+    <option name="LAST_COMMIT_MESSAGE" value="add song auto download to discord request" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="ruby-line">
+          <url>file://$PROJECT_DIR$/../../../../../Ruby32-x64/lib/ruby/gems/3.2.0/gems/opus-ruby-1.0.1/lib/opus-ruby/encoder.rb</url>
+          <line>10</line>
+          <properties myBlockOrdinal="-1">
+            <option name="block-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Discord_Bot_Play_Music@Main.rcov" NAME="Main Coverage Results" MODIFIED="1677535075750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="Discord_Bot_Play_Music" />
   </component>
 </project>

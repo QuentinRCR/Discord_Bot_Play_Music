@@ -25,7 +25,6 @@ class Song
     driver = Selenium::WebDriver.for :firefox, options: options
     driver.manage.timeouts.page_load = 30
 
-
     begin
       #get the video URL from youtube
       # query     = CGI.escape(song_name)
@@ -53,6 +52,14 @@ class Song
     end
 
     driver.quit #quit the diver
+  end
+
+
+  def play(voice_bot,event)
+    voice_bot.play_file("C:/Users/quent/Downloads/onlymp3.to - Hilda x Don Diablo - Wake Me When It's Quiet Lyric Video-sUmVrPGYZ-E-256k-1654729619195(3).mp3")
+
+    # Send a message indicating that the song is playing
+    event.respond "Playing #{url}"
   end
 
 
