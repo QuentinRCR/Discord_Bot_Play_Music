@@ -20,8 +20,8 @@ class Main
 
 
     #when the player executes the command /music
-    bot.command :music do |event|
-      url = event.message.content.gsub(prefix+"music", '') # Extract the URL from the message content
+    bot.command :play do |event|
+      url = event.message.content.gsub(prefix+"play", '') # Extract the URL from the message content
       song=Song.new(url)
       #song.download_song #download the sound
       voice_bot = bot.connect_user_voice_chanel(event) #Connect to the user channel
@@ -29,6 +29,10 @@ class Main
         song.play(voice_bot,event) # Play the song
       end
     end
+
+    # bot.command :quit do |event|
+    #   bot
+    # end
 
     bot.run(false) #run the bot forever
   end

@@ -1,5 +1,7 @@
 class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
 
+  attr_reader :voice_bot
+
   def initialize(attributes = nil)
     super
   end
@@ -15,8 +17,12 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
     self.voice_connect(event.user.voice_channel)
 
     # Get the voice bot instance
-    voice_bot = self .voice(event.server)
+    @voice_bot = self .voice(event.server)
 
-    return  voice_bot
+    return  @voice_bot
+  end
+
+  def quite_voice
+
   end
 end
