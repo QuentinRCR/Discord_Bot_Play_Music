@@ -1,6 +1,6 @@
 class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
 
-  attr_reader :voice_bot
+  attr_accessor :voice_bot
 
   def initialize(attributes = nil)
     super
@@ -22,7 +22,19 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
     return  @voice_bot
   end
 
-  def quite_voice
+  def quite_voice(event)
+    event.respond "Bye, hope to see you soon"
+    @voice_bot.destroy
+    @voice_bot = nil #because it is destroyed
+  end
 
+  def pause_voice(event)
+    event.respond "The music is paused"
+    @voice_bot.pause
+  end
+
+  def resume_voice(event)
+    event.respond "ok I resume the music"
+    @voice_bot.continue
   end
 end

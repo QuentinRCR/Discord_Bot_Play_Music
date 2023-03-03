@@ -25,14 +25,23 @@ class Main
       song=Song.new(url)
       #song.download_song #download the sound
       voice_bot = bot.connect_user_voice_chanel(event) #Connect to the user channel
+      puts "#{voice_bot}"
       if voice_bot!=nil #if the player was connected to a voice channel
         song.play(voice_bot,event) # Play the song
       end
     end
 
-    # bot.command :quit do |event|
-    #   bot
-    # end
+    bot.command :quit do |event|
+      bot.quite_voice(event)
+    end
+
+    bot.command :stop do |event|
+      bot.pause_voice(event)
+    end
+    #
+    bot.command :resume do |event|
+      bot.resume_voice(event)
+    end
 
     bot.run(false) #run the bot forever
   end

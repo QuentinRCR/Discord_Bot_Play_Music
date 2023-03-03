@@ -55,11 +55,13 @@ class Song
   end
 
 
-  def play(voice_bot,event)
-    voice_bot.play_file("C:/Users/quent/Downloads/onlymp3.to - Hilda x Don Diablo - Wake Me When It's Quiet Lyric Video-sUmVrPGYZ-E-256k-1654729619195(3).mp3")
+    def play(voice_bot,event)
+      # Send a message indicating that the song is playing
+      event.respond "Playing #{url}"
 
-    # Send a message indicating that the song is playing
-    event.respond "Playing #{url}"
+      voice_bot.play_file("C:/Users/quent/Downloads/onlymp3.to - Hilda x Don Diablo - Wake Me When It's Quiet Lyric Video-sUmVrPGYZ-E-256k-1654729619195(3).mp3")
+
+
   end
 
 
