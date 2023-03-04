@@ -12,6 +12,7 @@ class Song
     @url=url
     @id = @@counter
     @@counter += 1
+    self.download_song
   end
 
   def download_song
