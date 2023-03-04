@@ -3,9 +3,13 @@ class Song
   attr_accessor :url
   attr_accessor :absolut_path
   attr_accessor :title
+  @@counter = 0 #declare variable as static
+  attr_reader :id
 
   def initialize(url)
     @url=url
+    @id = @@counter
+    @@counter += 1
   end
 
   def download_song
@@ -13,26 +17,33 @@ class Song
     @title = %x(python -m yt_dlp --skip-download --get-title #{url})
 
 
-    title=@title.gsub(/[^0-9a-z ]/i,'') #keep only letters and figures
-    title=title.gsub(/\s+/, '_') #replace all the spaces by _
+    # title=@title.gsub(/[^0-9a-z ]/i,'') #keep only letters and figures
+    # title=title.gsub(/\s+/, '_') #replace all the spaces by _
 
+    @absolut_path="#{Dir.pwd}/downloads/#{@id}.mp3"
 
     #download the music to the path provided
-    %x(python -m yt_dlp -f "ba" -x --audio-format mp3 #{url}  -o #{Dir.pwd}/downloads/#{title})
+    %x(python -m yt_dlp -f "ba" -x --audio-format mp3 #{url}  -o #{@absolut_path})
 
 
-    @absolut_path="#{Dir.pwd}/downloads/#{title}.mp3"
+
   end
 
 
-    def play(voice_bot,event)
-      # Send a message indicating that the song is playing
-      event.respond "Playing #{url}"
+  def play(voice_bot,event)
+    # Send a message indicating that the song is playing
+    event.respond "Playing #{url}"
 
-      puts @absolut_path
-      voice_bot.play_file(@absolut_path)
+    voice_bot.play_file(@absolut_path)
+  end
 
-
+  def delete
+    @title=nil
+    @url= nil
+    File.delete(@absolut_path)
+    @absolut_path = nil
+    @id=nil
+    @@counter-=1
   end
 
 

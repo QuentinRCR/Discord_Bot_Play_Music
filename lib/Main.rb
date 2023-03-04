@@ -1,5 +1,4 @@
 require 'discordrb'
-require 'selenium-webdriver'
 require_relative 'song'
 require_relative 'bot'
 require_relative 'bot_credentials'
@@ -21,7 +20,6 @@ class Main
       song=Song.new(url)
       song.download_song #download the sound
       voice_bot = bot.connect_user_voice_chanel(event) #Connect to the user channel
-      puts "#{voice_bot}"
       if voice_bot!=nil #if the player was connected to a voice channel
         song.play(voice_bot,event) # Play the song
       end
