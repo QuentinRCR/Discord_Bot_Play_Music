@@ -1,9 +1,11 @@
 class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
 
   attr_accessor :voice_bot
+  attr_accessor :queue
 
   def initialize(attributes = nil)
     super
+    @queue = Queue.new
   end
 
   def connect_user_voice_chanel(event)
@@ -38,12 +40,12 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
     @voice_bot.continue
   end
 
-  def play(event,queue)
-    while queue.size!=0
-      sound = queue.pop #get the next sound on the queue
+  def play(event)
+    while @queue.size > 0
+      sound = @queue.pop #get the next sound on the queue
       @voice_bot.play_file(sound.absolut_path) #play it
       sound.delete #once it is played, delete it from the downloads
     end
-    @voice_bot.destroy #if there is no music left to play, it automatically disconnect
+    self.quite_voice(event) #if there is no music left to play, it automatically disconnect
   end
 end

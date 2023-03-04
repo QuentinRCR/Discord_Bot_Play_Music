@@ -22,15 +22,11 @@ class Main
 
         if voice_bot!=nil #if the player was connected to a voice channel
 
-          #create the queue that handles the flow
-          queue = MusicQueue.new
-
 
           # add the sound to the queue
-          queue.push(Song.new(url))
+          bot.queue.push(Song.new(url))
 
-          bot.play(event,queue)
-          #queue.pop.play(voice_bot,event) # Play the song
+          bot.play(event) #ask the bot to play the entire queue
         end
 
 
