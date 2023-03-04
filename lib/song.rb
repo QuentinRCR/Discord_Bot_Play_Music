@@ -32,14 +32,6 @@ class Song
 
   end
 
-
-  def play(voice_bot,event)
-    # Send a message indicating that the song is playing
-    event.respond "Playing #{url}"
-
-    voice_bot.play_file(@absolut_path)
-  end
-
   def delete
     @title=nil
     @url= nil

@@ -37,4 +37,13 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
     event.respond "ok I resume the music"
     @voice_bot.continue
   end
+
+  def play(event,queue)
+    while queue.size!=0
+      sound = queue.pop #get the next sound on the queue
+      @voice_bot.play_file(sound.absolut_path) #play it
+      sound.delete #once it is played, delete it from the downloads
+    end
+    @voice_bot.destroy #if there is no music left to play, it automatically disconnect
+  end
 end

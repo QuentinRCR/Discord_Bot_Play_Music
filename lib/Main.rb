@@ -29,9 +29,10 @@ class Main
           # add the sound to the queue
           queue.push(Song.new(url))
 
-          queue.pop.play(voice_bot,event) # Play the song
-          #queue.pop
+          bot.play(event,queue)
+          #queue.pop.play(voice_bot,event) # Play the song
         end
+
 
       rescue => e
         if e.exception.to_s.include?("Shell command [\"python")
@@ -41,6 +42,8 @@ class Main
         end
 
       end
+
+      return nil #to avoid unwanted responses in the chat
     end
 
 
