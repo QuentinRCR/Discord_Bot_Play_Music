@@ -1,3 +1,5 @@
+require 'safe_shell'
+
 class Song
 
   attr_accessor :url
@@ -13,8 +15,8 @@ class Song
   end
 
   def download_song
-    #get the title of the music
-    @title = %x(python -m yt_dlp --skip-download --get-title #{url})
+    #get the title of the music. If the URL is not correct, throws an error
+    @title = SafeShell.execute!("python -m yt_dlp --skip-download --get-title #{url}")
 
 
     # title=@title.gsub(/[^0-9a-z ]/i,'') #keep only letters and figures

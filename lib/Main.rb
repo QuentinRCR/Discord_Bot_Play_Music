@@ -16,25 +16,30 @@ class Main
 
 
     #when the player executes the command /music
-    bot.command :play do |event|
-      #create the queue that handles the flow
-      #queue = MusicQueue.new()
-      #puts queue.display
+    bot.command :play do |event,url|
+      begin
+        #create the queue that handles the flow
+        #queue = MusicQueue.new()
+        #puts queue.display
 
-      # Extract the URL from the message content
-      url = event.message.content.gsub(prefix+"play", '')
+        # add the sound to the queue
+        # queue.push(Song.new(url))
+        song = Song.new(url)
+        song.download_song
+        voice_bot = bot.connect_user_voice_chanel(event) #Connect to the user channel
+        if voice_bot!=nil #if the player was connected to a voice channel
+          song.play(voice_bot,event) # Play the song
+          #queue.pop
+        end
 
-      # add the sound to the queue
-      # queue.push(Song.new(url))
-      song = Song.new(url)
-      song.download_song
+      rescue => e
+        if e.exception.to_s.include?("Shell command [\"python")
+          event.respond("Please provide a valid URL")
+        else
+          event.respond("An unexpected error occurred. The error was: #{e}")
+        end
 
-      voice_bot = bot.connect_user_voice_chanel(event) #Connect to the user channel
-      if voice_bot!=nil #if the player was connected to a voice channel
-        song.play(voice_bot,event) # Play the song
-        #queue.pop
       end
-
     end
 
     bot.command :quit do |event|
