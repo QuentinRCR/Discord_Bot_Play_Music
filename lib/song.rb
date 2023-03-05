@@ -7,11 +7,13 @@ class Song
   attr_accessor :title
   @@counter = 0 #declare variable as static
   attr_reader :id
+  attr_reader :downloaded
 
   def initialize(url)
     @url=url
     @id = @@counter
     @@counter += 1
+    @downloaded = false
     self.download_song
   end
 
@@ -29,7 +31,7 @@ class Song
     %x(python -m yt_dlp -f "ba" -x --audio-format mp3 #{url}  -o #{@absolut_path})
 
 
-
+    @downloaded = true
   end
 
   def delete

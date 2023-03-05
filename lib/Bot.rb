@@ -6,6 +6,7 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
   def initialize(attributes = nil)
     super
     @queue = Queue.new
+    @voice_bot = nil
   end
 
   def connect_user_voice_chanel(event)

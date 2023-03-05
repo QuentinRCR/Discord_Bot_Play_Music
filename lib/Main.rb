@@ -59,6 +59,17 @@ class Main
       return nil #to avoid unwanted responses in the chat
     end
 
+    bot.command :queue do |event,url|
+      puts "#{bot.voice_bot}"
+      if bot.voice_bot != nil
+        event.respond("#{url} was added to the queue")
+        bot.queue.push(Song.new(url))
+      else
+        event.respond("Please use the `/play url` command to start the voice bot")
+      end
+      return nil #to avoid unwanted responses in the chat
+    end
+
     bot.run(false) #run the bot forever
   end
 
