@@ -7,6 +7,9 @@ require_relative 'Music_queue'
 class Main
 
   def self.run
+    FileUtils.rm_r("#{Dir.pwd}/downloads",secure: true) #delete all potential remaining files in the download directory
+    #this a there to avoid useless songs taking memory if there are not deleted automatically
+
     bot_token= BOT_CREDENTIALS::INFO['token']
     client_id= BOT_CREDENTIALS::INFO['id']
     prefix="/"
