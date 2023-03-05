@@ -7,8 +7,6 @@ require_relative 'Music_queue'
 class Main
 
   def self.run
-    FileUtils.rm_r("#{Dir.pwd}/downloads",secure: true) #delete all potential remaining files in the download directory
-    #this a there to avoid useless songs taking memory if there are not deleted automatically
 
     bot_token= BOT_CREDENTIALS::INFO['token']
     client_id= BOT_CREDENTIALS::INFO['id']
@@ -20,6 +18,9 @@ class Main
 
     #when the player executes the command /music
     bot.command :play do |event,url|
+      FileUtils.rm_r("#{Dir.pwd}/downloads",secure: true) #delete all potential remaining files in the download directory
+      #this a there to avoid useless songs taking memory if there are not deleted automatically
+
       begin
         voice_bot = bot.connect_user_voice_chanel(event) #Connect to the user channel
 
@@ -63,7 +64,6 @@ class Main
     end
 
     bot.command :queue do |event,url|
-      puts "#{bot.voice_bot}"
       if bot.voice_bot != nil
         event.respond("#{url} was added to the queue")
         bot.queue.push(Song.new(url))
@@ -71,6 +71,11 @@ class Main
         event.respond("Please use the `/play url` command to start the voice bot")
       end
       return nil #to avoid unwanted responses in the chat
+    end
+
+    bot.command :skip do |event|
+      event.respond "Ok I'll skip this song"
+      bot.voice_bot.stop_playing
     end
 
     bot.run(false) #run the bot forever
