@@ -65,15 +65,25 @@ class Main
     end
 
     bot.command :queue do |event,url|
-      if bot.voice_bot != nil #if a bot already exist
-        event.respond("#{url} was added to the queue")
-        new_song = Song.new(url)
-        bot.queue.push(new_song)
-        new_song.download_song
-      else
-        event.respond("Please use the `/play url` command to start the voice bot")
+      begin
+        if bot.voice_bot != nil #if a bot already exist
+          new_song = Song.new(url)
+          bot.queue.push(new_song)
+          new_song.download_song
+          event.respond("#{url} was added to the queue") #after the download to make sure that the download works
+        else
+          event.respond("Please use the `/play url` command to start the voice bot")
+        end
+      rescue => e
+        if e.exception.to_s.include?("Shell command [\"python")
+          event.respond("#{url} in not a valid URL")
+          bot.queue.delete(new_song) #delete the song that was added but that can't be found
+          return nil
+        else
+          event.respond("An unexpected error occurred. #{e}")
+        end
+
       end
-      return nil #to avoid unwanted responses in the chat
     end
 
     bot.command :skip do |event|
