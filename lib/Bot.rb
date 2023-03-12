@@ -29,6 +29,8 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
     event.respond "Bye, hope to see you soon"
     @voice_bot.destroy
     @voice_bot = nil #because it is destroyed
+    FileUtils.rm_rf("#{Dir.pwd}/downloads") #delete all potential remaining files downloaded
+    return nil
   end
 
   def pause_voice(event)
