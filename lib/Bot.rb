@@ -5,7 +5,7 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
 
   def initialize(attributes = nil)
     super
-    @queue = Thread::Queue.new
+    @queue = Array.new
     @voice_bot = nil
   end
 
@@ -43,7 +43,7 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
 
   def play(event)
     while @queue.size > 0
-      song = @queue.pop #get the next song on the queue
+      song = @queue.shift #get the next song on the queue
       puts song.downloaded
       until song.downloaded
         event.respond "Please wait for the song to download"
