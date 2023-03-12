@@ -2,7 +2,6 @@ require 'discordrb'
 require_relative 'song'
 require_relative 'bot'
 require_relative 'bot_credentials'
-require_relative 'Music_queue'
 
 class Main
 
