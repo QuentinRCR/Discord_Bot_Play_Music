@@ -5,7 +5,7 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
 
   def initialize(attributes = nil)
     super
-    @queue = Queue.new
+    @queue = Thread::Queue.new
     @voice_bot = nil
   end
 
@@ -43,9 +43,14 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
 
   def play(event)
     while @queue.size > 0
-      sound = @queue.pop #get the next sound on the queue
-      @voice_bot.play_file(sound.absolut_path) #play it
-      sound.delete #once it is played, delete it from the downloads
+      song = @queue.pop #get the next song on the queue
+      puts song.downloaded
+      until song.downloaded
+        event.respond "Please wait for the song to download"
+        sleep(5) #wait for the sound to be downloaded
+      end
+      @voice_bot.play_file(song.absolut_path) #play it
+      song.delete #once it is played, delete it from the downloads
     end
     self.quite_voice(event) #if there is no music left to play, it automatically disconnect
   end

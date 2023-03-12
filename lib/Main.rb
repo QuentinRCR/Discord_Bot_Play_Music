@@ -18,8 +18,7 @@ class Main
 
     #when the player executes the command /music
     bot.command :play do |event,url|
-      FileUtils.rm_r("#{Dir.pwd}/downloads",secure: true) #delete all potential remaining files in the download directory
-      #this a there to avoid useless songs taking memory if there are not deleted automatically
+
 
       begin
         voice_bot = bot.connect_user_voice_chanel(event) #Connect to the user channel
@@ -28,7 +27,9 @@ class Main
 
 
           # add the sound to the queue
-          bot.queue.push(Song.new(url))
+          new_song = Song.new(url)
+          bot.queue.push(new_song)
+          new_song.download_song
 
           bot.play(event) #ask the bot to play the entire queue
         end
@@ -38,7 +39,7 @@ class Main
         if e.exception.to_s.include?("Shell command [\"python")
           event.respond("Please provide a valid URL")
         else
-          event.respond("An unexpected error occurred. The error was: #{e}")
+          event.respond("An unexpected error occurred. #{e}")
         end
 
       end
@@ -64,9 +65,11 @@ class Main
     end
 
     bot.command :queue do |event,url|
-      if bot.voice_bot != nil
+      if bot.voice_bot != nil #if a bot already exist
         event.respond("#{url} was added to the queue")
-        bot.queue.push(Song.new(url))
+        new_song = Song.new(url)
+        bot.queue.push(new_song)
+        new_song.download_song
       else
         event.respond("Please use the `/play url` command to start the voice bot")
       end

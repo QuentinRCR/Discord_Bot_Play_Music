@@ -14,7 +14,6 @@ class Song
     @id = @@counter
     @@counter += 1
     @downloaded = false
-    self.download_song
   end
 
   def download_song
