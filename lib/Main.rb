@@ -69,6 +69,20 @@ class Main
         if bot.voice_bot != nil #if a bot already exist
           new_song = Song.new(url)
           bot.queue.push(new_song)
+
+          #check that song before on the queue are downloaded before downloading
+          bot.queue.each do |song|
+            if song != new_song #if it reaches new_song, it means that all the previous song are downloaded
+
+              # check that the song still exit in the list (it could have been deleted in another thread)
+              # Test if the song before is downloaded
+                until bot.queue.include?(song) && bot.queue.select { |elem|  elem.url==song.url}[0].downloaded do
+                  sleep(5) #wait for the sound to be downloaded
+                  puts "wait for previous song to be downloaded"
+                end
+            end
+          end
+
           new_song.download_song
           event.respond("#{url} was added to the queue") #after the download to make sure that the download works
         else
@@ -80,7 +94,7 @@ class Main
           bot.queue.delete(new_song) #delete the song that was added but that can't be found
           return nil
         else
-          event.respond("An unexpected error occurred. #{e}")
+          event.respond("An unexpected error occurredddd. #{e}")
         end
 
       end

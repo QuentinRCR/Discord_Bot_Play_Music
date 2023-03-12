@@ -39,7 +39,7 @@ class Song
     File.delete(@absolut_path)
     @absolut_path = nil
     @id=nil
-    @@counter-=1
+    # @@counter-=1 #do not put this counter as ot creates issues
   end
 
 

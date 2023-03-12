@@ -43,12 +43,12 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
 
   def play(event)
     while @queue.size > 0
-      song = @queue.shift #get the next song on the queue
-      puts song.downloaded
-      until song.downloaded
+      until @queue[0].downloaded #check if the song on the updated queue is downloaded
         event.respond "Please wait for the song to download"
         sleep(5) #wait for the sound to be downloaded
       end
+      song = @queue.pop
+      puts song.absolut_path
       @voice_bot.play_file(song.absolut_path) #play it
       song.delete #once it is played, delete it from the downloads
     end
