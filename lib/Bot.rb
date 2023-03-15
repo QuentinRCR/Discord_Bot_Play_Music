@@ -33,6 +33,11 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
     return nil
   end
 
+  def force_quit(event)
+    self.queue.clear #empty yhe queue
+    self.voice_bot.stop_playing #stop the play of the current song
+  end
+
   def pause_voice(event)
     event.respond "The music is paused"
     @voice_bot.pause
@@ -51,7 +56,11 @@ class Bot < Discordrb::Commands::CommandBot #the < is the extend equivalent
       end
       song = @queue.pop
       puts song.absolut_path
-      @voice_bot.play_file(song.absolut_path) #play it
+      begin
+        @voice_bot.play_file(song.absolut_path) #play it
+      rescue => e
+        event.respond("an error in voice_bot.play_file occurred: #{e}")
+      end
       song.delete #once it is played, delete it from the downloads
     end
     self.quite_voice(event) #if there is no music left to play, it automatically disconnect

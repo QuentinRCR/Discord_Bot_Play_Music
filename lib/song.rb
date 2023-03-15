@@ -18,7 +18,7 @@ class Song
 
   def download_song
     #get the title of the music. If the URL is not correct, throws an error
-    @title = SafeShell.execute!("python -m yt_dlp --skip-download --get-title #{url}")
+    # @title = SafeShell.execute!("python -m yt_dlp --skip-download --get-title #{url}")
 
 
     # title=@title.gsub(/[^0-9a-z ]/i,'') #keep only letters and figures
@@ -26,11 +26,17 @@ class Song
 
     @absolut_path="#{Dir.pwd}/downloads/#{@id}.mp3"
 
-    #download the music to the path provided
-    %x(python -m yt_dlp -f "ba" -x --audio-format mp3 #{url}  -o #{@absolut_path})
-
+    begin
+      #download the music to the path provided
+      %x(python -m yt_dlp -f "ba" -x --audio-format mp3 #{url}  -o #{@absolut_path})
+    rescue
+      puts "an error occurred during the song download"
+      return 1
+    end
 
     @downloaded = true
+
+    return 0
   end
 
   def delete
