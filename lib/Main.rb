@@ -20,7 +20,7 @@ class Main
     # song_handler=SongHandler.new("hul")
 
     bot.command :play do |event,url|
-      DownloadThread.push("#{url}")
+      DownloadThread.push(Song.new(url),event,bot)
     end
 
 
