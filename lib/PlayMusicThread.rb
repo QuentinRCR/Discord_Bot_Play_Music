@@ -49,4 +49,16 @@ class PlayMusicThread < Thread
     return  @voice_bot
   end
 
+  def self.skip
+    @voice_bot.stop_playing
+  end
+
+  def self.pause_song
+    @voice_bot.pause
+  end
+
+  def self.resume_song
+    @voice_bot.continue
+  end
+
 end

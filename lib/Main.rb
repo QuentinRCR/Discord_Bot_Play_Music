@@ -50,16 +50,18 @@ class Main
     # end
     #
     #
-    # bot.command :stop do |event|
-    #   bot.pause_voice(event)
-    #   return nil #to avoid unwanted responses in the chat
-    # end
-    #
-    #
-    # bot.command :resume do |event|
-    #   bot.resume_voice(event)
-    #   return nil #to avoid unwanted responses in the chat
-    # end
+    bot.command :stop do |event|
+      PlayMusicThread.pause_song
+      event.respond "The music is paused"
+      return nil #to avoid unwanted responses in the chat
+    end
+
+
+    bot.command :resume do |event|
+      event.respond "ok I resume the music"
+      PlayMusicThread.resume_song
+      return nil #to avoid unwanted responses in the chat
+    end
     #
     # bot.command :queue do |event,url|
     #
@@ -92,10 +94,10 @@ class Main
     #   end
     # end
     #
-    # bot.command :skip do |event|
-    #   event.respond "Ok I'll skip this song"
-    #   bot.voice_bot.stop_playing
-    # end
+    bot.command :skip do |event|
+      event.respond "Ok I'll skip this song"
+      PlayMusicThread.skip
+    end
 
     bot.run(false) #run the bot forever
   end
