@@ -2,6 +2,7 @@ class PlayMusicThread < Thread
 
   @@instance = nil
   attr_accessor :sound_to_play
+  attr_accessor :voice_bot
 
   def initialize
     @sound_to_play = Queue.new
@@ -21,11 +22,11 @@ class PlayMusicThread < Thread
   end
 
   def self.play_song(event,bot)
-    voice_bot = self.connect_user_voice_chanel(event,bot)
+    @voice_bot = self.connect_user_voice_chanel(event,bot)
     while @@instance.sound_to_play.size>0
       song=@@instance.sound_to_play.pop
       begin
-        voice_bot.play_file(song.absolut_path) #play it
+        @voice_bot.play_file(song.absolut_path) #play it
       rescue => e
         event.respond("an error in voice_bot.play_file occurred: #{e}")
       end
