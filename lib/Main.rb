@@ -53,22 +53,34 @@ class Main
     #
     #
     bot.command :quit do |event|
-      event.respond "Bye, hope to see you soon"
-      PlayMusicThread.quit
+      begin
+        PlayMusicThread.quit
+        event.respond "Bye, hope to see you soon"
+      rescue NoMethodError
+        event.respond "I am not connected to a voice chanel"
+      end
       return nil #to avoid unwanted responses in the chat
     end
     #
     #
     bot.command :stop do |event|
-      PlayMusicThread.pause_song
-      event.respond "The music is paused"
+      begin
+        PlayMusicThread.pause_song
+        event.respond "The music is paused"
+      rescue NoMethodError
+        event.respond "A song need to be playing to use this command"
+      end
       return nil #to avoid unwanted responses in the chat
     end
 
 
     bot.command :resume do |event|
-      event.respond "ok I resume the music"
-      PlayMusicThread.resume_song
+      begin
+        PlayMusicThread.resume_song
+        event.respond "ok I resume the music"
+      rescue NoMethodError
+        event.respond "A song need to be playing to use this command"
+      end
       return nil #to avoid unwanted responses in the chat
     end
     #
@@ -104,8 +116,12 @@ class Main
     # end
     #
     bot.command :skip do |event|
-      event.respond "Ok I'll skip this song"
-      PlayMusicThread.skip
+      begin
+        PlayMusicThread.skip
+        event.respond "Ok I'll skip this song"
+      rescue NoMethodError
+        event.respond "A song need to be playing to use this command"
+      end
     end
 
     bot.run(false) #run the bot forever
