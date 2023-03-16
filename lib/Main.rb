@@ -20,11 +20,18 @@ class Main
     # song_handler=SongHandler.new("hul")
 
     bot.command :play do |event,url|
+      event.respond "Ok I will play the song, please let me a few seconds to download it"
       DownloadThread.push(Song.new(url),event,bot)
+      return nil #to avoid unwanted responses in the chat
     end
 
+    bot.command :queue do |event,url|
+      event.respond "Ok I add this song to the queue"
+      DownloadThread.push(Song.new(url),event,bot)
+      return nil #to avoid unwanted responses in the chat
+    end
 
-    # #when the player executes the command /music
+      # #when the player executes the command /music
     # bot.command :play do |event,url|
     #
     #   voice_bot = bot.connect_user_voice_chanel(event) #Connect to the user channel
@@ -48,6 +55,7 @@ class Main
     bot.command :quit do |event|
       event.respond "Bye, hope to see you soon"
       PlayMusicThread.quit
+      return nil #to avoid unwanted responses in the chat
     end
     #
     #

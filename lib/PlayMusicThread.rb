@@ -27,10 +27,12 @@ class PlayMusicThread < Thread
       song=@@instance.sound_to_play.pop
       begin
         @voice_bot.play_file(song.absolut_path) #play it
+        song.delete #once it is played, delete it from the downloaded files
       rescue => e
         event.respond("an error in voice_bot.play_file occurred: #{e}")
       end
     end
+    self.quit #if there is no music left to play, it automatically disconnect
   end
 
   def self.connect_user_voice_chanel(event,bot)
@@ -62,6 +64,7 @@ class PlayMusicThread < Thread
   end
 
   def self.quit
+    @voice_bot.continue #in case the song was paused before, so that it frees the Thread
     @voice_bot.destroy #to leave the voice channel
     @@instance.sound_to_play.clear #clear the queue
     FileUtils.rm_rf("#{Dir.pwd}/downloads") #delete all potential remaining files downloaded
