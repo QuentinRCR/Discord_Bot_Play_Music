@@ -45,9 +45,10 @@ class Main
     # end
     #
     #
-    # bot.command :quit do |event|
-    #   bot.force_quit(event)
-    # end
+    bot.command :quit do |event|
+      event.respond "Bye, hope to see you soon"
+      PlayMusicThread.quit
+    end
     #
     #
     bot.command :stop do |event|

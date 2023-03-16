@@ -61,4 +61,10 @@ class PlayMusicThread < Thread
     @voice_bot.continue
   end
 
+  def self.quit
+    @voice_bot.destroy #to leave the voice channel
+    @@instance.sound_to_play.clear #clear the queue
+    FileUtils.rm_rf("#{Dir.pwd}/downloads") #delete all potential remaining files downloaded
+  end
+
 end
