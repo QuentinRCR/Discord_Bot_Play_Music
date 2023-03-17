@@ -20,14 +20,22 @@ class Main
     # song_handler=SongHandler.new("hul")
 
     bot.command :play do |event,url|
-      event.respond "Ok I will play the song, please let me a few seconds to download it"
-      DownloadThread.push(Song.new(url),event,bot)
+      if url != nil
+          event.respond "Ok I will play the song, please let me a few seconds to download it"
+          DownloadThread.push(Song.new(url),event,bot)
+      else
+        event.respond "Please provide the URL of the music you want to play"
+      end
       return nil #to avoid unwanted responses in the chat
     end
 
     bot.command :queue do |event,url|
-      event.respond "Ok I add this song to the queue"
-      DownloadThread.push(Song.new(url),event,bot)
+      if url != nil
+        event.respond "Ok I add this song to the queue"
+        DownloadThread.push(Song.new(url),event,bot)
+      else
+        event.respond "Please provide the URL of the music you want to add to the queue"
+      end
       return nil #to avoid unwanted responses in the chat
     end
 
