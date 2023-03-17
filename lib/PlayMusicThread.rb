@@ -33,6 +33,7 @@ class PlayMusicThread < Thread
     while @@instance.sound_to_play.size>0
       song=@@instance.sound_to_play.shift #remove the first element of the array and return it
       begin
+        event.respond ":musical_note: Playing: #{song.title} :musical_note:"
         @voice_bot.play_file(song.absolut_path) #play it
         song.delete #once it is played, delete it from the downloaded files
       rescue => e
