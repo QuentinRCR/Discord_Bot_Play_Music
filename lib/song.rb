@@ -8,12 +8,14 @@ class Song
   @@counter = 0 #declare variable as static
   attr_reader :id
   attr_reader :downloaded
+  attr_accessor :add_to #stores the fact that the song need to be play or queued
 
-  def initialize(url)
+  def initialize(url,add_to)
     @url=url
     @id = @@counter
     @@counter += 1
     @downloaded = false
+    @add_to = add_to
   end
 
   def download_song

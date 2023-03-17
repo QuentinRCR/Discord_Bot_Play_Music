@@ -5,7 +5,7 @@ class PlayMusicThread < Thread
   attr_accessor :voice_bot
 
   def initialize
-    @sound_to_play = Queue.new
+    @sound_to_play = Array.new
     super()
     puts "used constructor"
   end
@@ -18,13 +18,20 @@ class PlayMusicThread < Thread
         @@instance = nil
       end
     end
-    @@instance.sound_to_play.push(song)
+    if song.add_to == "play"
+      @@instance.sound_to_play.unshift(song) #add the song as the beginning of the array
+      if @voice_bot!=nil
+        @voice_bot.stop_playing #skip the currently playing song to start the one that was juste pushed
+      end
+    else
+        @@instance.sound_to_play.push(song) #if the song was queue, add it the the end of the queue
+    end
   end
 
   def self.play_song(event,bot)
     @voice_bot = self.connect_user_voice_chanel(event,bot)
     while @@instance.sound_to_play.size>0
-      song=@@instance.sound_to_play.pop
+      song=@@instance.sound_to_play.shift #remove the first element of the array and return it
       begin
         @voice_bot.play_file(song.absolut_path) #play it
         song.delete #once it is played, delete it from the downloaded files
@@ -32,7 +39,9 @@ class PlayMusicThread < Thread
         event.respond("an error in voice_bot.play_file occurred: #{e}")
       end
     end
-    self.quit #if there is no music left to play, it automatically disconnect
+    if @voice_bot!=nil #if voice_bot is nil, it means that he channel was already forcibly quit
+      self.quit #if there is no music left to play, it automatically disconnect
+    end
   end
 
   def self.connect_user_voice_chanel(event,bot)

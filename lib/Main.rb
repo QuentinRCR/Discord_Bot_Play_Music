@@ -22,7 +22,7 @@ class Main
     bot.command :play do |event,url|
       if url != nil
           event.respond "Ok I will play the song, please let me a few seconds to download it"
-          DownloadThread.push(Song.new(url),event,bot)
+          DownloadThread.push(Song.new(url,"play"),event,bot)
       else
         event.respond "Please provide the URL of the music you want to play"
       end
@@ -32,7 +32,7 @@ class Main
     bot.command :queue do |event,url|
       if url != nil
         event.respond "Ok I add this song to the queue"
-        DownloadThread.push(Song.new(url),event,bot)
+        DownloadThread.push(Song.new(url,"queue"),event,bot)
       else
         event.respond "Please provide the URL of the music you want to add to the queue"
       end
