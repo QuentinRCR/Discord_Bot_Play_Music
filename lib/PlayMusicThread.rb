@@ -48,12 +48,6 @@ class PlayMusicThread < Thread
   end
 
   def self.connect_user_voice_chanel(event,bot)
-    # Check if the user is in a voice channel
-    unless event.user.voice_channel
-      event.respond "You need to join a voice channel first"
-      return nil
-    end
-
     # Join the user's voice channel
     bot.voice_connect(event.user.voice_channel)
 

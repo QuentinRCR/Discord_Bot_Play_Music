@@ -20,11 +20,16 @@ class Main
     # song_handler=SongHandler.new("hul")
 
     bot.command :play do |event,url|
-      if url != nil
-          event.respond "Ok I will play the song, please let me a few seconds to download it"
-          DownloadThread.push(Song.new(url,"play"),event,bot)
+      # Check that the user is connected to a voice channel
+      if event.user.voice_channel
+        if url != nil
+            event.respond "Ok I will play the song, please let me a few seconds to download it"
+            DownloadThread.push(Song.new(url,"play"),event,bot)
+        else
+          event.respond "Please provide the URL of the music you want to play"
+        end
       else
-        event.respond "Please provide the URL of the music you want to play"
+        event.respond "You need to join a voice channel first"
       end
       return nil #to avoid unwanted responses in the chat
     end
@@ -36,6 +41,8 @@ class Main
         rescue NoMethodError => e
           event.respond "The queue is currently empty !"
         end
+      elsif !event.user.voice_channel
+        event.respond "You need to join a voice channel first"
       elsif url != nil
         event.respond "Ok I add this song to the queue"
         DownloadThread.push(Song.new(url,"queue"),event,bot)
