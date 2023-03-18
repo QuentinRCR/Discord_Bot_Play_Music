@@ -30,7 +30,13 @@ class Main
     end
 
     bot.command :queue do |event,url|
-      if url != nil
+      if url=="info"
+        begin
+          PlayMusicThread.queue_info(event)
+        rescue NoMethodError => e
+          event.respond "The queue is currently empty !"
+        end
+      elsif url != nil
         event.respond "Ok I add this song to the queue"
         DownloadThread.push(Song.new(url,"queue"),event,bot)
       else

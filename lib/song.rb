@@ -5,6 +5,7 @@ class Song
   attr_accessor :url
   attr_accessor :absolut_path
   attr_accessor :title
+  attr_accessor :duration
   @@counter = 0 #declare variable as static
   attr_reader :id
   attr_reader :downloaded
@@ -22,8 +23,10 @@ class Song
     @absolut_path="#{Dir.pwd}/downloads/#{@id}.mp3"
     begin
       #download the music to the path provided
-      @title =JSON.parse( %x(python -m yt_dlp --print-json -f "ba" -x --audio-format mp3 #{url}  -o #{@absolut_path}))["title"]
-      puts @title
+      json =JSON.parse( %x(python -m yt_dlp --print-json -f "ba" -x --audio-format mp3 #{url}  -o #{@absolut_path}))
+      @title = json["title"]
+      @duration = json["duration_string"]
+      puts duration
     rescue => e
       puts "an error occurred during the song download. #{e}"
       return 1

@@ -1,3 +1,5 @@
+require "discordrb"
+
 class PlayMusicThread < Thread
 
   @@instance = nil
@@ -79,6 +81,21 @@ class PlayMusicThread < Thread
     @@instance.sound_to_play.clear #clear the queue
     FileUtils.rm_rf("#{Dir.pwd}/downloads") #delete all potential remaining files downloaded
     @voice_bot=nil
+  end
+  
+  def self.queue_info(event)
+    if @@instance.sound_to_play.length>0
+      message = "List of incoming songs:```"
+      (0..(@@instance.sound_to_play.length-1)).each  do |i|
+        puts i
+        message += "#{i+1}. "+ @@instance.sound_to_play[i].title + ".........."+ @@instance.sound_to_play[i].duration + "\n"
+      end
+      message += "```"
+      event.respond message
+    else
+      event.respond "The queue is currently empty !"
+    end
+
   end
 
 end
